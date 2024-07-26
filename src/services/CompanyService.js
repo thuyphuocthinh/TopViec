@@ -16,6 +16,12 @@ class CompanyService extends BaseService {
     return result;
   }
 
+  async getInfoById(id) {
+    const api = `${DOMAIN}/company/${id}`;
+    const result = await this.get(api);
+    return result;
+  }
+
   async register(data) {
     const api = `${DOMAIN}/company`;
     const info = {

@@ -4,9 +4,12 @@ import { Chart } from "./chart";
 import { useDispatch, useSelector } from "react-redux";
 import { companyService } from "../../../services/CompanyService";
 import { getCompanyByTokenAction } from "../../../redux/actions/CompanyActions";
+import { jobsService } from "../../../services/JobsService";
+import { getAllJobsAction } from "../../../redux/actions/JobActions";
 
 export function Dashboard() {
   const { info } = useSelector((state) => state.CompanyReducer);
+  const { jobs } = useSelector((state) => state.JobsReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,7 +17,12 @@ export function Dashboard() {
       const result = await companyService.getInfoByToken();
       dispatch(getCompanyByTokenAction(result[0]));
     };
+    const getJobs = async () => {
+      const result = await jobsService.getAllJobs();
+      dispatch(getAllJobsAction(JSON.stringify(result)));
+    };
     getCompany();
+    getJobs();
   }, []);
 
   return (
@@ -41,8 +49,10 @@ export function Dashboard() {
         </Col>
         <Col xs={24} lg={8}>
           <Card title="CV" size="small">
-            <p>Card content</p>
-            <p>Card content</p>
+            <p>
+              <span>Tổng số jobs:</span>
+              <span> {JSON.parse(jobs).length} </span>
+            </p>
           </Card>
         </Col>
         <Col xs={24} lg={8}>

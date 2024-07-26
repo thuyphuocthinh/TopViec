@@ -51,11 +51,17 @@ export function AdminSider({ collapsed }) {
             key: "3",
             icon: <HddOutlined />,
             label: "Quản lý jobs",
+            onClick: () => {
+              navigate("/admin/jobs");
+            },
           },
           {
             key: "4",
             icon: <AuditOutlined />,
             label: "Quản lý CV",
+            onClick: () => {
+              navigate("/admin/cvs");
+            },
           },
         ]}
       />

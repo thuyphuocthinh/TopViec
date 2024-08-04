@@ -7,8 +7,8 @@ class JobsService extends BaseService {
   async getAllJobs() {
     const api = `${DOMAIN}/jobs`;
     let result = await this.get(api);
-    if (result.length > 0) {
-      const company = await companyService.getInfoByToken();
+    const company = await companyService.getInfoByToken();
+    if (result.length > 0 && company.length > 0) {
       result = result.filter((item) => item.idCompany === company[0].id);
       result.forEach(async (item) => {
         item.companyName = company[0].companyName;

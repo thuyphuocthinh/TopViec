@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React from "react";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -17,8 +17,8 @@ export function AdminHeader({ handleCollapse, collapsed }) {
     {
       key: "1",
       label: (
-        <a target="_blank" rel="noopener noreferrer" href={info.website} >
-          {info.companyName}
+        <a target="_blank" rel="noopener noreferrer" href={info?.website}>
+          {info?.companyName}
         </a>
       ),
     },

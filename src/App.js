@@ -1,5 +1,5 @@
 import "./assets/style/index.scss";
-import { AdminRoute, AuthRoute } from "./routes/appRoute";
+import { AdminRoute, AuthRoute, ClientsRoute } from "./routes/appRoute";
 import { Toaster } from "react-hot-toast";
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <AuthRoute />
       <AdminRoute />
+      <ClientsRoute />
       <Toaster />
     </div>
   );

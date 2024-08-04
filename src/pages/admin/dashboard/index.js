@@ -18,7 +18,7 @@ export function Dashboard() {
       dispatch(getCompanyByTokenAction(result[0]));
     };
     const getJobs = async () => {
-      const result = await jobsService.getAllJobs();
+      const result = await jobsService.getAllJobs();  
       dispatch(getAllJobsAction(JSON.stringify(result)));
     };
     getCompany();
@@ -41,17 +41,17 @@ export function Dashboard() {
         </Col>
         <Col xs={24} lg={8}>
           <Card title="Company" size="small">
-            <p>{info.companyName}</p>
-            <p>{info.description}</p>
-            <p>{info.address}</p>
-            <p>{info.phone}</p>
+            <p>{info?.companyName}</p>
+            <p>{info?.description}</p>
+            <p>{info?.address}</p>
+            <p>{info?.phone}</p>
           </Card>
         </Col>
         <Col xs={24} lg={8}>
           <Card title="CV" size="small">
             <p>
               <span>Tổng số jobs:</span>
-              <span> {JSON.parse(jobs).length} </span>
+              <span> {jobs.length > 0 ? JSON.parse(jobs).length : "0"} </span>
             </p>
           </Card>
         </Col>

@@ -16,9 +16,7 @@ export function Cvs() {
     setFilteredInfo(filters);
     setSortedInfo(sorter);
   };
-
-  console.log(data);
-
+  
   useEffect(() => {
     const getCvs = async () => {
       try {
